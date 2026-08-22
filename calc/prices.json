@@ -1,0 +1,28 @@
+{
+  "verified": "2026-06-22",
+  "checked": "2026-06-22",
+  "currency": "USD",
+  "note": "Illustrative GCP / Gemini list prices for sizing intuition, not a quote. Token prices are per 1,000,000 tokens; service prices per the unit noted. Refreshed and committed by .github/workflows/refresh-prices.yaml; wire a live source into scripts/refresh_prices.py.",
+  "models": {
+    "gemini-3.5-flash":      { "label": "Gemini 3.5 Flash",      "inP": 0.30, "outP": 2.50, "dec": 250, "ttft": 350 },
+    "gemini-3.1-flash-lite": { "label": "Gemini 3.1 Flash-Lite", "inP": 0.10, "outP": 0.40, "dec": 360, "ttft": 250 },
+    "gemini-3-pro":          { "label": "Gemini 3 Pro",          "inP": 2.00, "outP": 12.0, "dec": 140, "ttft": 600 },
+    "claude-opus":           { "label": "Claude Opus",           "inP": 15.0, "outP": 75.0, "dec": 70,  "ttft": 550 }
+  },
+  "services": {
+    "docPageOcr": 0.0015, "docPageLayout": 0.03, "docComplexShare": 0.6, "docMsPerPage": 60,
+    "searchPerQuery": 0.004, "searchMs": 250,
+    "groundPerCall": 0.035, "groundMs": 900,
+    "dlpPerGB": 1.00, "dlpMs": 60,
+    "armorPerCall": 0.0008, "armorMs": 130,
+    "logBytesPerTok": 12, "logIngestGB": 0.50, "logRetainMo": 36, "logRetainGBmo": 0.01,
+    "instHr": 0.19, "concPerInst": 30,
+    "dbNodeMo": 380, "dbQpsNode": 100, "dbMs": 35,
+    "ciPerMin": 0.006, "ciMinScan": 3,
+    "assetPerCall": 0.01,
+    "complianceCall": 0.0042, "complianceMs": 1600,
+    "bqPerReq": 0.00002,
+    "ackMs": 50
+  },
+  "constants": { "DAYS": 30.4, "TOKEN_BYTES": 4, "HOURS": 730, "VALIDATOR_MS": 150, "EVAL_PARALLEL": 20 }
+}

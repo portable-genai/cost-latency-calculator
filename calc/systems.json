@@ -1,0 +1,385 @@
+[
+ {
+  "id": "Hrz1",
+  "repo": "agent-guardrail-gateway",
+  "name": "Agent Guardrail Gateway",
+  "unitLabel": "Guardrail screens",
+  "unitShort": "screen",
+  "tagline": "Runtime policy proxy: PII redaction, prompt-injection and jailbreak defense.",
+  "flags": {
+   "redact": 1,
+   "guardrail": 1,
+   "generate": 1
+  },
+  "defaults": {
+   "volumePerDay": 200000,
+   "burst": 4,
+   "activeHoursPerWeek": 120,
+   "model": "gemini-3.1-flash-lite",
+   "tokensIn": 800,
+   "tokensOut": 5
+  }
+ },
+ {
+  "id": "Hrz2",
+  "repo": "enterprise-knowledge-base",
+  "name": "Enterprise Knowledge Base",
+  "unitLabel": "KB searches",
+  "unitShort": "search",
+  "tagline": "ACL-aware governed RAG, the shared knowledge base.",
+  "flags": {
+   "redact": 1,
+   "guardrail": 1,
+   "retrieval": 1,
+   "generate": 1
+  },
+  "defaults": {
+   "volumePerDay": 50000,
+   "burst": 3,
+   "activeHoursPerWeek": 90,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 1500,
+   "tokensOut": 400,
+   "retrievalQueries": 1
+  }
+ },
+ {
+  "id": "Hrz3",
+  "repo": "agent-registry",
+  "name": "Agent Registry & Governance",
+  "unitLabel": "Registry ops",
+  "unitShort": "op",
+  "tagline": "Agent registry, identity, scoped entitlements, discovery.",
+  "flags": {
+   "dbOnly": 1
+  },
+  "defaults": {
+   "volumePerDay": 100000,
+   "burst": 4,
+   "activeHoursPerWeek": 120
+  }
+ },
+ {
+  "id": "Hrz4",
+  "repo": "model-quality-gate",
+  "name": "AI Quality & Model-Risk",
+  "unitLabel": "Eval runs",
+  "unitShort": "run",
+  "tagline": "Eval and red-team promotion gate, model cards, MRM evidence.",
+  "flags": {
+   "generate": 1,
+   "evalRun": 1,
+   "retrieval": 1
+  },
+  "defaults": {
+   "volumePerDay": 200,
+   "burst": 2,
+   "activeHoursPerWeek": 60,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 2000,
+   "tokensOut": 300,
+   "examplesPerRun": 50,
+   "metrics": 4,
+   "retrievalQueries": 1
+  }
+ },
+ {
+  "id": "Hrz5",
+  "repo": "agent-observability",
+  "name": "Observability, Audit & FinOps",
+  "unitLabel": "Audited events",
+  "unitShort": "event",
+  "tagline": "OpenTelemetry tracing, token FinOps, immutable WORM audit.",
+  "flags": {
+   "ingestHeavy": 1,
+   "bigQuery": 1
+  },
+  "defaults": {
+   "volumePerDay": 5000000,
+   "burst": 5,
+   "activeHoursPerWeek": 168,
+   "bytesPerEvent": 3000
+  }
+ },
+ {
+  "id": "Doc1",
+  "repo": "cdd-sow-research",
+  "name": "CDD + Source of Wealth Agent",
+  "unitLabel": "CDD cases",
+  "unitShort": "case",
+  "tagline": "KYC, registries and adverse media into a cited CDD dossier.",
+  "flags": {
+   "redact": 1,
+   "guardrail": 1,
+   "docAI": 1,
+   "retrieval": 1,
+   "grounding": 1,
+   "generate": 1,
+   "thinking": 1,
+   "multiStep": 1,
+   "complianceCheck": 1
+  },
+  "defaults": {
+   "volumePerDay": 500,
+   "burst": 3,
+   "activeHoursPerWeek": 50,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 6000,
+   "tokensOut": 1800,
+   "thinkingTokens": 1500,
+   "docPages": 30,
+   "retrievalQueries": 4,
+   "groundingCalls": 2,
+   "agents": 4,
+   "iterations": 3
+  }
+ },
+ {
+  "id": "Doc2",
+  "repo": "credit-memo-drafting",
+  "name": "Credit-Memo / Underwriting Assistant",
+  "unitLabel": "Credit memos",
+  "unitShort": "memo",
+  "tagline": "Financials and filings into a cited credit memo.",
+  "flags": {
+   "redact": 1,
+   "guardrail": 1,
+   "docAI": 1,
+   "retrieval": 1,
+   "generate": 1,
+   "thinking": 1,
+   "bigQuery": 1
+  },
+  "defaults": {
+   "volumePerDay": 300,
+   "burst": 3,
+   "activeHoursPerWeek": 50,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 8000,
+   "tokensOut": 2000,
+   "thinkingTokens": 1500,
+   "docPages": 40,
+   "retrievalQueries": 3
+  }
+ },
+ {
+  "id": "Doc3",
+  "repo": "cio-advisory",
+  "name": "Personalised CIO Advisory Assistant",
+  "unitLabel": "Advisory briefings",
+  "unitShort": "briefing",
+  "tagline": "Suitability-checked RM talking points (decision-support, not advice).",
+  "flags": {
+   "redact": 1,
+   "guardrail": 1,
+   "retrieval": 1,
+   "generate": 1,
+   "thinking": 1,
+   "bigQuery": 1
+  },
+  "defaults": {
+   "volumePerDay": 1000,
+   "burst": 3,
+   "activeHoursPerWeek": 55,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 4000,
+   "tokensOut": 1200,
+   "thinkingTokens": 1000,
+   "retrievalQueries": 3
+  }
+ },
+ {
+  "id": "Doc4",
+  "repo": "trade-finance-checker",
+  "name": "Trade-Finance Document Checker (UCP600)",
+  "unitLabel": "LC presentations",
+  "unitShort": "presentation",
+  "tagline": "Letter-of-credit discrepancy detection against UCP600.",
+  "flags": {
+   "redact": 1,
+   "guardrail": 1,
+   "docAI": 1,
+   "retrieval": 1,
+   "generate": 1
+  },
+  "defaults": {
+   "volumePerDay": 400,
+   "burst": 3,
+   "activeHoursPerWeek": 55,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 5000,
+   "tokensOut": 1000,
+   "docPages": 12,
+   "retrievalQueries": 2
+  }
+ },
+ {
+  "id": "Doc5",
+  "repo": "loan-document-intelligence",
+  "name": "Loan / Mortgage Document Intelligence",
+  "unitLabel": "Loan applications",
+  "unitShort": "application",
+  "tagline": "Income and bank-statement extraction with deterministic cross-validation.",
+  "flags": {
+   "redact": 1,
+   "guardrail": 1,
+   "docAI": 1,
+   "generate": 1
+  },
+  "defaults": {
+   "volumePerDay": 800,
+   "burst": 3,
+   "activeHoursPerWeek": 55,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 4000,
+   "tokensOut": 800,
+   "docPages": 15
+  }
+ },
+ {
+  "id": "Doc6",
+  "repo": "complaints-review",
+  "name": "Complaints & Conduct File Review",
+  "unitLabel": "Complaint files",
+  "unitShort": "file",
+  "tagline": "Summarise, categorise and draft regulator-ready responses.",
+  "flags": {
+   "redact": 1,
+   "guardrail": 1,
+   "docAI": 1,
+   "retrieval": 1,
+   "generate": 1
+  },
+  "defaults": {
+   "volumePerDay": 600,
+   "burst": 3,
+   "activeHoursPerWeek": 50,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 5000,
+   "tokensOut": 1500,
+   "docPages": 10,
+   "retrievalQueries": 3
+  }
+ },
+ {
+  "id": "Rsk1",
+  "repo": "compliance-advisory",
+  "name": "Compliance Assistant",
+  "unitLabel": "Compliance questions",
+  "unitShort": "question",
+  "tagline": "Grounded Q&A over MAS / HKMA / APRA / FSA guidance.",
+  "flags": {
+   "redact": 1,
+   "guardrail": 1,
+   "retrieval": 1,
+   "grounding": 1,
+   "generate": 1,
+   "thinking": 1
+  },
+  "defaults": {
+   "volumePerDay": 2000,
+   "burst": 3,
+   "activeHoursPerWeek": 55,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 4000,
+   "tokensOut": 1200,
+   "thinkingTokens": 1500,
+   "retrievalQueries": 4,
+   "groundingCalls": 1
+  }
+ },
+ {
+  "id": "Rsk2",
+  "repo": "compliance-advisory",
+  "name": "Cloud Control-Mapping Toolkit",
+  "unitLabel": "Evidence packs",
+  "unitShort": "pack",
+  "tagline": "Map GCP controls to each regulator requirement, evidence pack.",
+  "flags": {
+   "retrieval": 1,
+   "generate": 1,
+   "thinking": 1,
+   "complianceCheck": 1,
+   "assetInventory": 1
+  },
+  "defaults": {
+   "volumePerDay": 50,
+   "burst": 2,
+   "activeHoursPerWeek": 45,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 6000,
+   "tokensOut": 2500,
+   "thinkingTokens": 1500,
+   "retrievalQueries": 3
+  }
+ },
+ {
+  "id": "Rsk3",
+  "repo": "architecture-validator",
+  "name": "Architecture & Requirements Validator",
+  "unitLabel": "Project validations",
+  "unitShort": "validation",
+  "tagline": "Policy-as-code intake gate for the twelve General Principles.",
+  "flags": {
+   "retrieval": 1,
+   "generate": 1,
+   "thinking": 1,
+   "complianceCheck": 1
+  },
+  "defaults": {
+   "volumePerDay": 100,
+   "burst": 2,
+   "activeHoursPerWeek": 45,
+   "model": "gemini-3.5-flash",
+   "tokensIn": 5000,
+   "tokensOut": 2000,
+   "thinkingTokens": 1500,
+   "retrievalQueries": 3
+  }
+ },
+ {
+  "id": "Rsk4",
+  "repo": "architecture-validator",
+  "name": "Data Residency / Sovereignty Validator",
+  "unitLabel": "IaC scans",
+  "unitShort": "scan",
+  "tagline": "Scan IaC for region and residency violations (CI gate).",
+  "flags": {
+   "generate": 1,
+   "cloudBuild": 1
+  },
+  "defaults": {
+   "volumePerDay": 500,
+   "burst": 3,
+   "activeHoursPerWeek": 90,
+   "model": "gemini-3.1-flash-lite",
+   "tokensIn": 1500,
+   "tokensOut": 500
+  }
+ },
+ {
+  "id": "Rsk5",
+  "repo": "operational-resilience-mapping",
+  "name": "Exit & Portability Planner",
+  "unitLabel": "Exit plans",
+  "unitShort": "plan",
+  "tagline": "Concentration-risk and exit plan (APRA CPS 230, MAS and HKMA outsourcing).",
+  "flags": {
+   "retrieval": 1,
+   "generate": 1,
+   "thinking": 1,
+   "complianceCheck": 1,
+   "assetInventory": 1
+  },
+  "defaults": {
+   "volumePerDay": 20,
+   "burst": 2,
+   "activeHoursPerWeek": 45,
+   "model": "gemini-3-pro",
+   "tokensIn": 8000,
+   "tokensOut": 3000,
+   "thinkingTokens": 2000,
+   "retrievalQueries": 3
+  }
+ }
+]

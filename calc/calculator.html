@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GenAI cost & latency calculator</title>
+<meta name="description" content="Cost and latency calculator for GenAI / agentic systems (with bundled GRC reference-catalog examples). Pick a system, size the workload, see token-priced cost and decode-rate latency.">
+<script>(function(){try{var t=localStorage.getItem('calc-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="calc-root"></div>
+<!-- Same-repo (hosted) app: engine + app load relatively; app.js fetches ./systems.json and ./prices.json. -->
+<script src="./engine.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

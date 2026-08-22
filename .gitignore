@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+*.log
+/tmp/
+*.svg
+
+# Local secrets and configuration. The .example files are the committed contract.
+.env
+.env.*
+!.env.example
+!.env.secrets.example
