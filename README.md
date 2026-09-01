@@ -29,7 +29,7 @@ scripts/
                    emits each catalog repo's thin loader page
   refresh_prices.py validates (and optionally refreshes) prices.json
   test.cjs         runs every system through the engine and checks the invariants
-.github/workflows/refresh-prices.yaml  validates on push; on a schedule refreshes + commits prices
+scripts/refresh_prices.py             refreshes prices; run by hand, nothing schedules it
 ```
 
 ## How the catalog repos use it

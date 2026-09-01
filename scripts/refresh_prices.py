@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Validate (and optionally refresh) calc/prices.json.
 
-Run by .github/workflows/refresh-prices.yaml on a schedule and on demand. It:
+Run by hand. Nothing schedules it: the GitHub Actions cron that used to is gone, because
+Actions are disabled organization-wide and the workflow had never run. It:
 
   1. loads and structurally validates prices.json (fails CI on a malformed book), then
   2. if a live source is configured, refreshes the rates and stamps the dates.
