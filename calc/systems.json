@@ -1,6 +1,6 @@
 [
  {
-  "id": "Hrz1",
+  "slug": "agent-guardrail-gateway",
   "repo": "agent-guardrail-gateway",
   "name": "Agent Guardrail Gateway",
   "unitLabel": "Guardrail screens",
@@ -21,7 +21,7 @@
   }
  },
  {
-  "id": "Hrz2",
+  "slug": "enterprise-knowledge-base",
   "repo": "enterprise-knowledge-base",
   "name": "Enterprise Knowledge Base",
   "unitLabel": "KB searches",
@@ -44,7 +44,7 @@
   }
  },
  {
-  "id": "Hrz3",
+  "slug": "agent-registry",
   "repo": "agent-registry",
   "name": "Agent Registry & Governance",
   "unitLabel": "Registry ops",
@@ -60,7 +60,7 @@
   }
  },
  {
-  "id": "Hrz4",
+  "slug": "model-quality-gate",
   "repo": "model-quality-gate",
   "name": "AI Quality & Model-Risk",
   "unitLabel": "Eval runs",
@@ -84,7 +84,7 @@
   }
  },
  {
-  "id": "Hrz5",
+  "slug": "agent-observability",
   "repo": "agent-observability",
   "name": "Observability, Audit & FinOps",
   "unitLabel": "Audited events",
@@ -102,7 +102,7 @@
   }
  },
  {
-  "id": "Doc1",
+  "slug": "cdd-sow-research",
   "repo": "cdd-sow-research",
   "name": "CDD + Source of Wealth Agent",
   "unitLabel": "CDD cases",
@@ -135,7 +135,7 @@
   }
  },
  {
-  "id": "Doc2",
+  "slug": "credit-memo-drafting",
   "repo": "credit-memo-drafting",
   "name": "Credit-Memo / Underwriting Assistant",
   "unitLabel": "Credit memos",
@@ -163,7 +163,7 @@
   }
  },
  {
-  "id": "Doc3",
+  "slug": "cio-advisory",
   "repo": "cio-advisory",
   "name": "Personalised CIO Advisory Assistant",
   "unitLabel": "Advisory briefings",
@@ -189,7 +189,7 @@
   }
  },
  {
-  "id": "Doc4",
+  "slug": "trade-finance-checker",
   "repo": "trade-finance-checker",
   "name": "Trade-Finance Document Checker (UCP600)",
   "unitLabel": "LC presentations",
@@ -214,7 +214,7 @@
   }
  },
  {
-  "id": "Doc5",
+  "slug": "loan-document-intelligence",
   "repo": "loan-document-intelligence",
   "name": "Loan / Mortgage Document Intelligence",
   "unitLabel": "Loan applications",
@@ -237,7 +237,7 @@
   }
  },
  {
-  "id": "Doc6",
+  "slug": "complaints-review",
   "repo": "complaints-review",
   "name": "Complaints & Conduct File Review",
   "unitLabel": "Complaint files",
@@ -262,7 +262,7 @@
   }
  },
  {
-  "id": "Rsk1",
+  "slug": "compliance-advisory",
   "repo": "compliance-advisory",
   "name": "Compliance Assistant",
   "unitLabel": "Compliance questions",
@@ -289,7 +289,7 @@
   }
  },
  {
-  "id": "Rsk2",
+  "slug": "compliance-advisory-control-mapping",
   "repo": "compliance-advisory",
   "name": "Cloud Control-Mapping Toolkit",
   "unitLabel": "Evidence packs",
@@ -314,7 +314,7 @@
   }
  },
  {
-  "id": "Rsk3",
+  "slug": "architecture-validator",
   "repo": "architecture-validator",
   "name": "Architecture & Requirements Validator",
   "unitLabel": "Project validations",
@@ -338,7 +338,7 @@
   }
  },
  {
-  "id": "Rsk4",
+  "slug": "architecture-validator-residency",
   "repo": "architecture-validator",
   "name": "Data Residency / Sovereignty Validator",
   "unitLabel": "IaC scans",
@@ -358,7 +358,7 @@
   }
  },
  {
-  "id": "Rsk5",
+  "slug": "operational-resilience-mapping-exit-planning",
   "repo": "operational-resilience-mapping",
   "name": "Exit & Portability Planner",
   "unitLabel": "Exit plans",

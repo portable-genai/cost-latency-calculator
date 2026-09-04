@@ -17,8 +17,8 @@ for (const s of systems) {
              r.latency.ttftMs <= r.latency.p95Ms + 0.5 && r.cost.monthly > 0 && isFinite(r.cost.per1k) &&
              Math.abs(stageSum - r.latency.p95Ms) < 1e-6 && Math.abs(lineSum - r.cost.monthly) < 1e-6 &&
              inputsFor(s.flags).every(k => k in s.defaults || k === 'model');
-  if (!ok) { bad++; console.log('FAIL', s.id, JSON.stringify(r.capacity), JSON.stringify(r.latency).slice(0, 80)); }
-  console.log(s.id.padEnd(5), Math.round(r.capacity.reqMonth).toLocaleString().padStart(11),
+  if (!ok) { bad++; console.log('FAIL', s.slug, JSON.stringify(r.capacity), JSON.stringify(r.latency).slice(0, 80)); }
+  console.log(s.slug.padEnd(44), Math.round(r.capacity.reqMonth).toLocaleString().padStart(11),
     (Math.round(r.latency.p95Ms) + 'ms').padStart(9), (Math.round(r.latency.ttftMs) + 'ms').padStart(9),
     ('$' + Math.round(r.cost.monthly).toLocaleString()).padStart(11), ('$' + r.cost.per1k.toFixed(2)).padStart(10),
     inputsFor(s.flags).length);

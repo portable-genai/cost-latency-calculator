@@ -12,7 +12,7 @@ It ships with the 16-system
 those repositories references this one engine rather than copying it, so the calculation and
 the pricing live here once and a price change is made in one place.
 
-**Live app:** https://portable-genai.github.io/cost-latency-calculator/ (choose a system with `?system=ID`, e.g. `?system=Doc1`).
+**Live app:** https://portable-genai.github.io/cost-latency-calculator/ (choose a system with `?system=ID`, e.g. `?system=cdd-sow-research`).
 
 ## What is here
 
@@ -39,7 +39,7 @@ jsDelivr and passes its own system id:
 
 ```html
 <script>
-  window.CALC_SYSTEM = 'Doc1';
+  window.CALC_SYSTEM = 'cdd-sow-research';
   window.CALC_BASE = 'https://cdn.jsdelivr.net/gh/portable-genai/cost-latency-calculator';
   window.CALC_REF = 'v1';          // engine + app + styles + systems pinned to a release tag
   window.CALC_PRICES_REF = 'main'; // prices.json tracks main so refreshes propagate
