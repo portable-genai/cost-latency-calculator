@@ -7,7 +7,7 @@ live so the linked URL resolves.
 """
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build import SYSTEMS  # noqa: E402
+from build import SYSTEMS, WORKSPACE  # noqa: E402
 
 HOME = os.path.expanduser("~")
 PAGES = "https://portable-genai.github.io/cost-latency-calculator/calc/calculator.html"
@@ -26,13 +26,13 @@ def section(sid):
 def main():
     changed = []
     for s in SYSTEMS:
-        path = os.path.join(HOME, "git", s["repo"], "README.md")
+        path = os.path.join(WORKSPACE, s["repo"], "README.md")
         if not os.path.isfile(path):
             print("  MISSING README:", s["repo"]); continue
         txt = open(path, encoding="utf-8").read()
         if MARK in txt:
             print("  skip (already linked):", s["repo"]); continue
-        sec = section(s["id"])
+        sec = section(s["slug"])
         if "\n## License" in txt:
             txt = txt.replace("\n## License", "\n" + sec + "\n## License", 1)
         else:

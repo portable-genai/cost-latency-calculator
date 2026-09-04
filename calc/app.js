@@ -51,7 +51,7 @@
   function buildInputs() {
     var keys = E.inputsFor(SYS.flags), groups = {}, order = [];
     keys.forEach(function (k) { var g = REG[k].g; if (!groups[g]) { groups[g] = []; order.push(g); } groups[g].push(k); });
-    var saved = {}; try { saved = JSON.parse(localStorage.getItem('calc:' + SYS.id) || '{}'); } catch (e) {}
+    var saved = {}; try { saved = JSON.parse(localStorage.getItem('calc:' + SYS.slug) || '{}'); } catch (e) {}
     function val(k) { return (k in saved) ? saved[k] : SYS.defaults[k]; }
     var html = '';
     order.forEach(function (g) {
@@ -82,7 +82,7 @@
       inp[k] = (REG[k].t === 'model') ? el.value : Number(el.value);
       var o = $('#o-' + k); if (o) o.textContent = el.value;
     });
-    try { localStorage.setItem('calc:' + SYS.id, JSON.stringify(inp)); } catch (e) {}
+    try { localStorage.setItem('calc:' + SYS.slug, JSON.stringify(inp)); } catch (e) {}
   }
 
   function kv(v, k) { return '<div class="kv"><b>' + v + '</b><span>' + k + '</span></div>'; }
@@ -106,17 +106,17 @@
   }
 
   function mountSystem(id) {
-    SYS = SYSTEMS.filter(function (s) { return s.id === id; })[0] || SYSTEMS[0];
+    SYS = SYSTEMS.filter(function (s) { return s.slug === id; })[0] || SYSTEMS[0];
     document.title = SYS.name + ' - cost & latency calculator';
-    $('#sys-id').textContent = SYS.id;
+    $('#sys-id').textContent = SYS.slug;
     $('#sys-name').textContent = SYS.name;
     $('#sys-tag').textContent = SYS.tagline;
     $('#repo-link').href = 'https://github.com/portable-genai/' + SYS.repo;
     $('#repo-link').textContent = SYS.repo;
-    $('#sysSel').value = SYS.id;
+    $('#sysSel').value = SYS.slug;
     buildInputs();
     render();
-    try { history.replaceState(null, '', '?system=' + SYS.id); } catch (e) {}
+    try { history.replaceState(null, '', '?system=' + SYS.slug); } catch (e) {}
   }
 
   function start() {
@@ -124,11 +124,11 @@
     root.innerHTML = shell();
     var pd = $('#px-date'); if (pd) pd.textContent = PRICES.verified || '';
     var sel = $('#sysSel');
-    sel.innerHTML = SYSTEMS.map(function (s) { return '<option value="' + s.id + '">' + s.id + ' - ' + esc(s.name) + '</option>'; }).join('');
+    sel.innerHTML = SYSTEMS.map(function (s) { return '<option value="' + s.slug + '">' + s.slug + ' - ' + esc(s.name) + '</option>'; }).join('');
     sel.addEventListener('change', function () { mountSystem(sel.value); });
     $('#inputs').addEventListener('input', render);
     $('#resetBtn').addEventListener('click', function () {
-      try { localStorage.removeItem('calc:' + SYS.id); } catch (e) {}
+      try { localStorage.removeItem('calc:' + SYS.slug); } catch (e) {}
       buildInputs(); render();
     });
     $('#themeBtn').addEventListener('click', function () {
@@ -136,7 +136,7 @@
       document.documentElement.setAttribute('data-theme', cur);
       try { localStorage.setItem('calc-theme', cur); } catch (e) {}
     });
-    var want = (new URLSearchParams(location.search)).get('system') || window.CALC_SYSTEM || SYSTEMS[0].id;
+    var want = (new URLSearchParams(location.search)).get('system') || window.CALC_SYSTEM || SYSTEMS[0].slug;
     mountSystem(want);
   }
 
